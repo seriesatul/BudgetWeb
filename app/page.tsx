@@ -12,7 +12,7 @@ export default function Home() {
         This wrapper is ONLY for centered content.
         Notice that PortfolioSection is NOT inside it.
       */}
-      <div className="relative flex flex-col items-center overflow-hidden">
+      <div className="relative flex flex-col items-center">
         <HeroSection/>
       </div>
 
