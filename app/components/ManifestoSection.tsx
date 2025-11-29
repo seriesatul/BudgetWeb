@@ -36,21 +36,10 @@ const ManifestoSection = () => {
       
       <div className="max-w-4xl flex flex-col justify-center items-center mx-auto text-center">
         
-        {/*
-          MAIN CONTAINER FOR TEXT:
-          - We apply the responsive font size here to affect all children.
-          - Mobile (default): text-5xl
-          - Small screens (sm): text-6xl
-          - Medium screens (md): text-7xl
-          - Large screens (lg): text-8xl
-        */}
-        <div className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-tight">
+       
+        <div className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight">
           
-          {/*
-            Each line now inherits the responsive font size from the parent.
-            We remove the hardcoded `text-9xl`.
-            We use `text-foreground` for theme consistency.
-          */}
+          
           <div className="manifesto-line text-black">
             Born from a simple idea,
           </div>
@@ -58,10 +47,7 @@ const ManifestoSection = () => {
             We build digital tools that solve real
           </div>
           <div className="manifesto-line text-black">
-            {/*
-              Span: On mobile, doodles are hidden for clarity.
-              The span is `inline-block` on mobile, `flex` on desktop.
-            */}
+            
             <span className="relative inline-block md:flex items-center justify-center gap-4 text-blue-600">
                problems,
               <div className="hidden md:block"><Scribble/></div>
