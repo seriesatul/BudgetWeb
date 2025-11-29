@@ -1,4 +1,4 @@
-// src/components/TestimonialsSection.tsx - Fully Responsive
+// src/components/TestimonialsSection.tsx - Dark Themed with Logos
 
 "use client";
 
@@ -12,9 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 interface Testimonial {
   quote: string;
   name: string;
+  role: string;
   company: string;
-  packageType: string;
-  color: string;
+  logo: string; // Company logo text or emoji
+  accentColor: string; // Neon accent color
+  bgColor: string; // Dark background color
 }
 
 interface TestimonialCardProps extends Testimonial {
@@ -26,25 +28,42 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   quote, 
   name, 
   company, 
-  packageType, 
-  color, 
+  logo,
+  accentColor,
+  bgColor,
   className = '',
   style 
 }) => (
   <div 
-    className={`shrink-0 w-[260px] sm:w-[280px] md:w-[300px] lg:w-[350px] p-6 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between shadow-xl sm:shadow-2xl transition-shadow duration-300 ${className}`}
+    className={`shrink-0 w-[280px] sm:w-[120px] md:w-[180px] lg:w-[350px] p-8 sm:p-10 flex flex-col items-center justify-between gap-4 shadow-2xl transition-all duration-300 ${className}`}
     style={{ 
-      backgroundColor: color, 
-      height: '460px',
+      backgroundColor: bgColor, 
       ...style 
     }}
   >
-    <p className="text-base sm:text-lg font-medium text-white leading-relaxed">
-      "{quote}"
-    </p>
-    <div className="mt-4 sm:mt-5 md:mt-6">
-      <p className="font-bold text-white text-lg sm:text-xl">{name}</p>
-      <p className="text-xs sm:text-sm text-white/80 mt-1 sm:mt-2">{company} — {packageType}</p>
+    
+
+    {/* Quote */}
+    <div className="flex-1 flex items-center">
+      <p className="text-5xl text-center text-white mt-2 capitalize font-extrabold tracking-tighter">{company}</p>
+    </div>
+
+    <div className="mb-6">
+      <div 
+        className="text-6xl sm:text-7xl font-black hover:scale-120 transition-all leading-none"
+        style={{ color: accentColor }}
+      >
+        {logo}
+      </div>
+    </div>
+
+    {/* Author info at bottom */}
+    <div className="mt-6 pt-6">
+       <p className="text-center sm:text-sm md:text-md font-bold text-white leading-relaxed">
+        {quote}
+      </p>
+      <p className="font-bold text-center text-white text-sm sm:text-sm mb-1">-{name}</p>
+     
     </div>
   </div>
 );
@@ -55,81 +74,100 @@ const TestimonialsSection: React.FC = () => {
 
   const testimonials: Testimonial[] = [
     {
-      quote: "The Productive package gave us structure and speed. We had a working MVP in days, not weeks.",
+      quote: "Websites that hit different. Emotional, interactive, unforgettable.",
       name: "Rohan Sharma",
+      role: "Creative Director",
       company: "PixelBridge Studios",
-      packageType: "Productive",
-      color: "#E76F51"
+      logo: "⚡",
+      accentColor: "#D4FF00",
+      bgColor: "#0A0A0A"
     },
     {
-      quote: "Our vague concept turned into a polished brand story and a stunning website. The Creative package was worth every rupee.",
+      quote: "Branding with attitude. From positioning to full-scale branding—we build brands that last.",
       name: "Priya Menon",
+      role: "Brand Strategist",
       company: "Aurora Learning Hub",
-      packageType: "Creative",
-      color: "#1D3557"
+      logo: "🌀",
+      accentColor: "#00F0FF",
+      bgColor: "#0D1B2A"
     },
     {
-      quote: "They handled everything from design to deployment. The final product feels premium and still loads lightning fast.",
+      quote: "Creative strategy. Naming, concepts, storytelling—we dig deep, break the mold.",
       name: "Anjali Gupta",
+      role: "Marketing Head",
       company: "Northwind Analytics",
-      packageType: "Creative",
-      color: "#FF6B6B"
+      logo: "◐",
+      accentColor: "#FF006E",
+      bgColor: "#1A1A2E"
     },
     {
-      quote: "Deadlines were tight, but they never compromised on quality. The Productive package kept everyone aligned and focused.",
+      quote: "Design systems that scale. Clean, consistent, conversion-focused UI that works.",
       name: "Vikram Singh",
-      company: "MacroStack Technologies",
-      packageType: "Productive",
-      color: "#2A9D8F"
+      role: "Product Designer",
+      company: "MacroStack Tech",
+      logo: "∞",
+      accentColor: "#D4FF00",
+      bgColor: "#16213E"
     },
     {
-      quote: "They didn't just build what we asked for—they challenged our assumptions and shipped something better.",
+      quote: "Bold ideas, bolder execution. They challenged everything we thought we knew.",
       name: "Aarav Verma",
+      role: "Founder",
       company: "BrightLeaf Media",
-      packageType: "Creative",
-      color: "#F4A261"
+      logo: "★",
+      accentColor: "#FFB800",
+      bgColor: "#000000"
     },
     {
-      quote: "The team understood our business quickly and translated it into a clean, conversion-focused UI.",
+      quote: "Strategic thinking meets stunning design. Our brand finally reflects our ambition.",
       name: "Kritika Nair",
-      company: "Horizon Legal Partners",
-      packageType: "Productive",
-      color: "#3F37C9"
+      role: "CEO",
+      company: "Horizon Legal",
+      logo: "◈",
+      accentColor: "#00FFB3",
+      bgColor: "#0F0F1E"
     },
     {
-      quote: "Every review call felt purposeful. We always knew what was done, what was next, and why.",
+      quote: "Fast, focused, flawless. Every sprint delivered exactly what we needed.",
       name: "Siddharth Jain",
+      role: "Tech Lead",
       company: "ClimbUp Fitness",
-      packageType: "Productive",
-      color: "#FF8600"
+      logo: "↗",
+      accentColor: "#FF5D00",
+      bgColor: "#1C1C1C"
     },
     {
-      quote: "Our old site looked dated. Now it feels bold, fresh, and actually reflects our brand personality.",
+      quote: "From dated to daring. Our site now screams confidence and creativity.",
       name: "Mahima Rao",
+      role: "Marketing Director",
       company: "EverGreen Organics",
-      packageType: "Creative",
-      color: "#0F7173"
+      logo: "◯",
+      accentColor: "#7FFF00",
+      bgColor: "#0A2F35"
     },
     {
-      quote: "They balanced aesthetics with performance. The pages look great and still load super fast on mobile.",
+      quote: "Performance meets aesthetics. Lightning-fast pages that look absolutely stunning.",
       name: "Rahul Khanna",
+      role: "CTO",
       company: "NovaEdge SaaS",
-      packageType: "Productive",
-      color: "#D7263D"
+      logo: "◢",
+      accentColor: "#FF1744",
+      bgColor: "#151515"
     },
     {
-      quote: "The Creative package helped us redesign our entire funnel visuals. Our engagement metrics went up immediately.",
+      quote: "Visual storytelling that converts. Our funnel metrics jumped 40% overnight.",
       name: "Sneha Kulkarni",
+      role: "Growth Lead",
       company: "StorySpark Studio",
-      packageType: "Creative",
-      color: "#0081A7"
+      logo: "◐",
+      accentColor: "#00E5FF",
+      bgColor: "#1B263B"
     }
   ];
 
-  // Responsive Y-offset logic
+  // Y-offset pattern for staggered effect
   const getUniqueYOffset = (index: number) => {
-    // Mobile-friendly pattern with smaller offsets
-    const pattern = [50, 120, -40, 80, 0, 100]; 
+    const pattern = [0, 140, -100, 80, -60, 120, -40, 100, -80, 60]; 
     return pattern[index % pattern.length];
   };
 
@@ -141,13 +179,13 @@ const TestimonialsSection: React.FC = () => {
       const viewportWidth = window.innerWidth;
       
       gsap.to(rowRef.current, {
-        x: () => -(totalWidth - viewportWidth), 
+        x: () => -(totalWidth - viewportWidth) * 0.5, 
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1, 
+          scrub: 2, 
           invalidateOnRefresh: true,
         }
       });
@@ -158,14 +196,14 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-20 sm:py-24 md:py-32 lg:py-40 xl:py-48 bg-gray-50"
+      className="relative py-20 sm:py-24 md:py-32 lg:py-40 xl:py-48"
     >
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-gray-900 leading-tight">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center mb-16 sm:mb-20 md:mb-24 lg:mb-28">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 text-black leading-tight">
           Don't just take our word for it.
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-black max-w-3xl mx-auto">
           See what our clients have to say about their experience.
         </p>
       </div>
@@ -174,7 +212,7 @@ const TestimonialsSection: React.FC = () => {
       <div className="relative w-full">
         <div 
           ref={rowRef}
-          className="flex gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-4 sm:px-6 md:px-8 w-max"
+          className="flex gap-5 sm:gap-6 md:gap-7 lg:gap-8 px-4 sm:px-6 md:px-8 w-max"
         >
           {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => {
             const yOffset = getUniqueYOffset(index);
@@ -190,8 +228,8 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Gradient Overlays */}
-        <div className="absolute top-0 left-0 w-12 sm:w-16 md:w-24 lg:w-32 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10" />
-        <div className="absolute top-0 right-0 w-12 sm:w-16 md:w-24 lg:w-32 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 left-0 w-12 sm:w-16 md:w-24 lg:w-32 h-full bg-gradient-to-r from-gray-900 to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 right-0 w-12 sm:w-16 md:w-24 lg:w-32 h-full bg-gradient-to-l from-gray-900 to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );

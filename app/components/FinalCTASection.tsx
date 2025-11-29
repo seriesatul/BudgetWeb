@@ -6,7 +6,7 @@ const FinalCTASection = () => {
     return (
         <section className="py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-primary">
             <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 md:px-8 lg:px-12">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold leading-tight sm:leading-tight md:leading-tight lg:leading-none mb-4 sm:mb-5 md:mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-9xl xl:text-9xl 2xl:text-8xl font-extrabold leading-tight sm:leading-tight md:leading-tight lg:leading-none mb-4 sm:mb-5 md:mb-6">
                     Tired of confusing quotes?
                 </h2>
                 <p className="mt-4 sm:mt-5 md:mt-6 max-w-2xl font-semibold sm:font-bold mx-auto text-sm sm:text-base md:text-lg lg:text-xl px-2">
