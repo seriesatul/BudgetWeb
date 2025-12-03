@@ -7,6 +7,7 @@ import Marquee from "./components/Marquee";
 import PhilosophySection from "./components/PhilosophySection";
 import PortfolioSection from "./components/PortfolioSection";
 import TestimonialsSection from "./components/TestimonialsSection";
+import WhatWeDoSection from "./components/WhatWeDoSection";
 
 export default function Home() {
   return (
@@ -46,6 +47,8 @@ export default function Home() {
         <PhilosophySection />
         <TestimonialsSection />
       </div>
+      
+      <WhatWeDoSection/>
 
       {/* Final CTA is full-bleed */}
       <FinalCTASection />

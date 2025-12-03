@@ -1,4 +1,4 @@
-// tailwind.config.ts - CORRECT CODE
+// tailwind.config.ts
 
 import type { Config } from 'tailwindcss';
 
@@ -11,10 +11,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'background': '#F3F3F3', // Light grey background
-        'foreground': '#111111', // Black for text
-        'primary': '#D4FF00',    // The vibrant lime green accent
-        'primary-dark': '#B8E000',// A darker green for hover states
+        'background': '#F3F3F3', 
+        'foreground': '#111111', 
+        'primary': '#D4FF00',    
+        'primary-dark': '#B8E000',
+      },
+      // --- ADD THIS SECTION ---
+      fontFamily: {
+        // This sets Inter as the default 'font-sans'
+        sans: ['var(--font-inter)', 'sans-serif'], 
+        // This creates a new utility 'font-display' using Space Grotesk
+        display: ['var(--font-space)', 'sans-serif'], 
       },
     },
   },
